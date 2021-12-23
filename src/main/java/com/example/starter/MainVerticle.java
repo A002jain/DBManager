@@ -12,6 +12,7 @@ import java.util.HashMap;
 
 public class MainVerticle extends AbstractVerticle {
 
+  error
   private static final Logger logger = LoggerFactory.getLogger(MainVerticle.class);
 
   @Override
