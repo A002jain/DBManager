@@ -1,1 +1,1 @@
-web: gradle run
+web: java -jar build/libs/*fat.jar
