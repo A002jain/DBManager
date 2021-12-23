@@ -31,7 +31,7 @@ public class MainVerticle extends AbstractVerticle {
      
       .requestHandler(router)
       
-      .listen(8888,"localhost", http -> {
+      .listen(http -> {
       if (http.succeeded()) {
         startPromise.complete();
         logger.info("HTTP server started on port 8888");
