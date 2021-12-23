@@ -27,11 +27,14 @@ public class MainVerticle extends AbstractVerticle {
       context.response().end("All");
     });
     
+    String port = System.getenv("PORT");
+    if(port == null)
+    	port = "8888";
     vertx.createHttpServer()
      
       .requestHandler(router)
       
-      .listen(System.getenv("PORT");,"0.0.0.0",http -> {
+      .listen(Integer.parseInt(port),"0.0.0.0",http -> {
       if (http.succeeded()) {
         startPromise.complete();
         logger.info("HTTP server started on port 8888");
