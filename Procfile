@@ -1,1 +1,1 @@
-web: java -jar build/libs/*fat.jar
+web: java -jar build/libs/*all.jar
