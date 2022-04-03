@@ -51,6 +51,6 @@ dependencies {
 
 shadowJar {
     manifest {
-        attributes 'Main-Class': 'com.example.starter.App'
+        attributes 'Main-Class': 'com.my.service.App'
     }
 }
