@@ -20,14 +20,14 @@ public class DbConfig {
                 Configuration configuration = new Configuration();
                 Properties properties = new Properties();
                 properties.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
-                properties.put(Environment.URL,"jdbc:mysql://mysqldb/demo");
+                properties.put(Environment.URL,System.getenv("DATABASE_URL"));
 //                properties.put(Environment.URL, "jdbc:mysql://localhost:3306/demo");
-                properties.put(Environment.USER, "root");
-                properties.put(Environment.PASS, "root");
+                properties.put(Environment.USER, System.getenv("USER"));
+                properties.put(Environment.PASS, System.getenv("PASSWORD"));
                 properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
                 properties.put(Environment.SHOW_SQL, "true");
                 properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
-                properties.put(Environment.HBM2DDL_AUTO, "update");
+                properties.put(Environment.HBM2DDL_AUTO, System.getenv("TABLE"));
                 configuration.setProperties(properties);
                 configuration.addAnnotatedClass(DemoUser.class);
                 configuration.addAnnotatedClass(DemoDOB.class);

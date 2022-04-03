@@ -20,14 +20,11 @@ public class DBRepository {
     public Object find(String id, Class<?> tableClass){
         try(Session session = HibernateUtil.getSession()) {
             return session.find(tableClass, id);
+        }catch (Exception e){
+            log.info("Error read All Records", e);
         }
+        return null;
     }
-
-//    public Object find(Object object){
-//        try(Session session = HibernateUtil.getSession()) {
-//            return session.find
-//        }
-//    }
 
     public List findAll(Class<?> TableClass){
         try(Session session = HibernateUtil.getSession()) {
@@ -37,7 +34,10 @@ public class DBRepository {
             CriteriaQuery<?> all = cq.select(rootEntry);
             TypedQuery allQuery = session.createQuery(all);
             return allQuery.getResultList();
+        }catch (Exception e){
+            log.info("Error read All Records", e);
         }
+        return null;
     }
 
     public Object save(Object object){

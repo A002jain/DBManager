@@ -18,8 +18,8 @@ initial
     table creation : done
     read and a read all api: done
     write api: done
-    update api:
-    delete api:
+    update api: done
+    delete api: done
     query api:
     table/schema api:
 
