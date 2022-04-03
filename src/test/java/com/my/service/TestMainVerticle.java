@@ -1,5 +1,6 @@
 package com.my.service;
 
+import com.my.service.db.api.verticles.DBVertical;
 import io.vertx.core.Vertx;
 import io.vertx.junit5.VertxExtension;
 import io.vertx.junit5.VertxTestContext;
@@ -13,7 +14,7 @@ class TestMainVerticle {
 
   @BeforeEach
   void deploy_verticle(Vertx vertx, VertxTestContext testContext) {
-    vertx.deployVerticle(new MainVerticle(), testContext.succeeding(id -> testContext.completeNow()));
+    vertx.deployVerticle(new DBVertical(), testContext.succeeding(id -> testContext.completeNow()));
   }
 
   @Test
