@@ -7,9 +7,13 @@ ext {
     vertxVersion = '4.1.4'
     junitJupiterVersion = '5.7.0'
     lo4jVersion = '2.14.1'
+    mysqlVersion = '8.0.21'
+    postgresVersion = ''
+    hibernateVersion = '5.3.1.Final'
 }
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
@@ -20,14 +24,29 @@ java {
 
 dependencies {
 
+
+//    vertx
     implementation("io.vertx:vertx-web:$vertxVersion")
     testImplementation("io.vertx:vertx-junit5:$vertxVersion")
     implementation("io.vertx:vertx-web-client:$vertxVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
+    implementation("io.vertx:vertx-web-graphql:$vertxVersion")
 
+    // hibernate orm
+    implementation("mysql:mysql-connector-java:$mysqlVersion")
+    implementation("org.hibernate:hibernate-core:$hibernateVersion")
+
+//    logging
     implementation("org.apache.logging.log4j:log4j-api:$lo4jVersion")
     implementation("org.apache.logging.log4j:log4j-core:$lo4jVersion")
     implementation("org.apache.logging.log4j:log4j-slf4j-impl:$lo4jVersion")
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
+//    implementation("javax.xml.bind:jaxb-api:2.3.1")
+
+//    testing
+    testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
+
+
 }
 
 shadowJar {

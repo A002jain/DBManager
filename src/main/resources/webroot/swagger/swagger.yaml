@@ -1,0 +1,100 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  description: Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.
+  version: 0.1.9
+servers:
+  - url: http://localhost:8080/api
+    description: test server
+
+tags:
+  - name: Database
+
+paths:
+  /table/{table}/create:
+    put:
+      summary: create record in table
+      tags:
+        - Database
+      description: create record in table
+      parameters:
+        - in: path
+          name: table
+          type: string
+          required: true
+      requestBody:
+        description: recod json body
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - firstName
+              properties:
+                age:
+                  type: int
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+
+      responses:
+        '201':
+          description: Created
+
+  /table/{table}/id/{id}/read:
+    get:
+      summary: read from table by id
+      tags:
+        - Database
+      description: read from table by id
+      parameters:
+        - in: path
+          name: table
+          type: string
+          required: true
+        - in: path
+          name: id
+          type: string
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+
+  /table/{table}/read:
+    get:
+      summary: read all from table
+      tags:
+        - Database
+      description: read all from table
+      parameters:
+        - in: path
+          name: table
+          type: string
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+
+  /table/{table}/id/{id}/delete:
+    delete:
+      summary: delete from table by id
+      tags:
+        - Database
+      description: delete from table by id
+      parameters:
+        - in: path
+          name: table
+          type: string
+          required: true
+        - in: path
+          name: id
+          type: string
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:

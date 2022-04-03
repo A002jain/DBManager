@@ -1,0 +1,21 @@
+version: "3"
+services:
+  test-dbmanager-cont:
+    image: test-dbmanager
+    ports:
+      - "8080:8080"
+    networks:
+      - test-docker-net
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql
+    networks:
+      - test-docker-net
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=demo
+
+networks:
+  test-docker-net:
