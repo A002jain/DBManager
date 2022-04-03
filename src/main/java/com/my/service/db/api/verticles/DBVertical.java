@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 public class DBVertical  extends AbstractVerticle {
 
     private static final Logger logger = LoggerFactory.getLogger(DBVertical.class);
-    private static final Integer PORT = 8080;
+    private static final Integer PORT = Integer.parseInt(System.getenv("PORT"));
 
     @Override
     public void start(Promise<Void> startPromise) throws Exception {
