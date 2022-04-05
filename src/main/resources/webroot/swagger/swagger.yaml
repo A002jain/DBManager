@@ -5,7 +5,9 @@ info:
   version: 0.1.9
 servers:
   - url: http://localhost:8080/api
-    description: test server
+    description: local test server
+  - url: https://java-hello-vert-x.herokuapp.com/api
+    description: heroku server server
 
 tags:
   - name: Database
