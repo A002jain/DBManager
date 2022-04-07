@@ -33,7 +33,6 @@ public class DbConfig {
                 configuration.addAnnotatedClass(DemoUser.class);
                 configuration.addAnnotatedClass(DemoDOB.class);
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-                        .configure("hibernate.cfg.xml")
                         .applySettings(configuration.getProperties()).build();
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
             }
