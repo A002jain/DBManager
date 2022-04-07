@@ -19,12 +19,13 @@ public class DbConfig {
             if(sessionFactory == null) {
                 Configuration configuration = new Configuration();
                 Properties properties = new Properties();
-                properties.put(Environment.DRIVER, System.getenv("JDBC_DRIVER"));
-                properties.put(Environment.URL,System.getenv("DATABASE_URL"));
+                properties.put(Environment.DRIVER, System.getenv("JDBC_DRIVER")+"?ssl=true&sslmode=require");
+//                properties.put(Environment.URL,System.getenv("DATABASE_URL"));
 //                properties.put(Environment.URL, "jdbc:mysql://localhost:3306/demo");
-                properties.put(Environment.USER, System.getenv("USER"));
-                properties.put(Environment.PASS, System.getenv("PASSWORD"));
+//                properties.put(Environment.USER, System.getenv("USER"));
+//                properties.put(Environment.PASS, System.getenv("PASSWORD"));
                 properties.put(Environment.DIALECT, System.getenv("JDBC_DIALECT"));
+                properties.put("ssl", System.getenv("ssl"));
                 properties.put(Environment.SHOW_SQL, "true");
                 properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, System.getenv("SESSION_CONTEXT"));
                 properties.put(Environment.HBM2DDL_AUTO, System.getenv("TABLE"));
