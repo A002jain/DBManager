@@ -19,13 +19,12 @@ public class DbConfig {
             if(sessionFactory == null) {
                 Configuration configuration = new Configuration();
                 Properties properties = new Properties();
-                properties.put(Environment.DRIVER, System.getenv("JDBC_DRIVER"));
-                properties.put(Environment.URL,"jdbc:" + System.getenv("DATABASEURL"));
 //                properties.put(Environment.URL, "jdbc:postgres://ec2-34-231-63-30.compute-1.amazonaws.com:5432/d2jkid44nsf4q3");
-                properties.put(Environment.USER, System.getenv("USER"));
-                properties.put(Environment.PASS, System.getenv("PASSWORD"));
+                properties.put(Environment.URL,DB.url());
+                properties.put(Environment.USER, DB.user());
+                properties.put(Environment.PASS, DB.password());
+                properties.put(Environment.DRIVER, System.getenv("JDBC_DRIVER"));
                 properties.put(Environment.DIALECT, System.getenv("JDBC_DIALECT"));
-//                properties.put("ssl", System.getenv("ssl"));
                 properties.put(Environment.SHOW_SQL, "true");
                 properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, System.getenv("SESSION_CONTEXT"));
                 properties.put(Environment.HBM2DDL_AUTO, System.getenv("TABLE"));
